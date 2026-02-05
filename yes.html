@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ask Her Out</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div
+        class="tenor-gif-embed"
+        data-postid="253027946666209433"
+        data-share-method="host"
+        data-aspect-ratio="1.37853"
+        data-width="100%"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/256/6467/6467818.png"
+          alt="hehe"
+        />
+      </div>
+      <h1>I knew it! You Love me a lot 😘</h1>
+    </div>
+    <!-- Floating Emojis -->
+    <div class="emoji-container"></div>
+
+    <script>
+      const emojis = ["❤️", "💖", "😘", "🤗", "💕", "😍"];
+      const container = document.querySelector(".emoji-container");
+
+      function createEmoji() {
+        const emoji = document.createElement("span");
+        emoji.classList.add("emoji");
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.fontSize = Math.random() * 20 + 20 + "px";
+        emoji.style.animationDuration = Math.random() * 2 + 2 + "s";
+
+        container.appendChild(emoji);
+
+        setTimeout(() => {
+          emoji.remove();
+        }, 6000);
+      }
+
+      setInterval(createEmoji, 300);
+    </script>
+  </body>
+</html>

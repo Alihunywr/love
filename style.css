@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #111, #000);
+  overflow: hidden;
+}
+
+/* ===== Container ===== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+  width: 500px;
+  padding: 30px;
+  background: rgba(15, 15, 15, 0.9);
+  border-radius: 25px;
+  box-shadow:
+    0 20px 40px rgba(185, 74, 74, 0.8),
+    0 0 40px rgba(233, 228, 228, 0.918);
+  transform-style: preserve-3d;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ===== Floating Animation ===== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== GIF ===== */
+.container .tenor-gif-embed {
+  max-width: 200px;
+  filter: drop-shadow(0 15px 25px rgba(255, 255, 255, 0.9));
+  transform: translateZ(30px);
+}
+
+/* ===== Buttons Wrapper ===== */
+.container .btn {
+  display: flex;
+  gap: 25px;
+}
+
+/* ===== Buttons ===== */
+.btn a {
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(145deg, #1f1f1f, #0d0d0d);
+  padding: 12px 30px;
+  border-radius: 60px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.1),
+    0 10px 25px rgba(247, 243, 243, 0.9),
+    0 0 20px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Glow Effect ===== */
+.btn a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: 0.5s;
+}
+
+/* ===== Hover Effects ===== */
+.btn a:hover::before {
+  transform: translateX(100%);
+}
+
+.emoji-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.emoji {
+  position: absolute;
+  top: -10%;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+.btn a:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 1),
+    0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Click Effect ===== */
+.btn a:active {
+  transform: translateY(0) scale(0.96);
+}
+
+#move-random {
+  z-index: 9999 !important;
+  position: relative; /* Initial position */
+  transition: all 0.2s ease; /* Smooth movement ke liye (optional) */
+}
+
+/* Container ka overflow check karein */
+.container {
+  overflow: visible; /* Isay 'visible' rakhein taake button bahar nikal sake */
+  position: relative;
+  z-index: 1;
+}
+
+/* Styling ko ID par shift karein taake move hone ke baad bhi styling rahe */
+#move-random {
+  text-decoration: none;
+  color: #fff !important; /* Text color white hi rahe */
+  background: linear-gradient(145deg, #1f1f1f, #0d0d0d);
+  padding: 12px 30px;
+  border-radius: 60px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.1),
+    0 10px 25px rgba(247, 243, 243, 0.9);
+  transition: all 0.2s ease;
+  z-index: 999999 !important; /* Sabse upar */
+  display: inline-block; /* Layout sahi rakhne ke liye */
+}
